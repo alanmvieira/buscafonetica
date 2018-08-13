@@ -1,6 +1,6 @@
 package test.com.validador;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,89 +16,13 @@ public class ValidadorInputTest {
 		validadorInput = new ValidadorInput();
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test()
 	public void validarTestArgsNull() {
 
-		String[] args = null;
+		String[] args = new String[1];
+		args[0] = "1ton# brief soon < word_dict.txt";
 
-		try {
-			validadorInput.validar(args);
-		} catch (RuntimeException re) {
-			String message = "Args null";
-			assertEquals(message, re.getMessage());
-			throw re;
-		}
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void validarTestArgsQuantidade() {
-
-		String[] args = new String[2];
-		args[0] = "arg1";
-		args[1] = "arg2";
-
-		try {
-			validadorInput.validar(args);
-		} catch (RuntimeException re) {
-			String message = "quantidade de argumentos invalidos";
-			assertEquals(message, re.getMessage());
-			throw re;
-		}
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void validarTestArgsVazios() {
-
-		String[] args = new String[3];
-		args[0] = "arg1";
-		args[1] = "arg2";
-		args[2] = "";
-
-		try {
-			validadorInput.validar(args);
-		} catch (RuntimeException re) {
-			String message = "definição de argumentos invalidos";
-			assertEquals(message, re.getMessage());
-			throw re;
-		}
-
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void validarTestArgsSeparacao() {
-
-		String[] args = new String[3];
-		args[0] = "arg1";
-		args[1] = ">";
-		args[2] = "args";
-
-		try {
-			validadorInput.validar(args);
-		} catch (RuntimeException re) {
-			String message = "definição de argumentos de separacao invalido";
-			assertEquals(message, re.getMessage());
-			throw re;
-		}
-
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void validarTestArgsFile() {
-
-		String[] args = new String[3];
-		args[0] = "arg1";
-		args[1] = "<";
-		args[2] = "text.txtt";
-
-		try {
-			validadorInput.validar(args);
-		} catch (RuntimeException re) {
-			String message = "extensao do arquivo de dicionario errado";
-			assertEquals(message, re.getMessage());
-			throw re;
-		}
+		assertTrue(validadorInput.validar(args));
 
 	}
 

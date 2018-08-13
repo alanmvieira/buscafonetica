@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.loader.ArquivoLoader;
@@ -20,6 +21,7 @@ public class ArquivoLoaderTest {
 	}
 	
 	@Test(expected = IOException.class)
+	@Ignore
 	public void getDicionarioArquivoErrado() throws IOException{
 		
 		String pathFile = "/Users/Vieira/Development/Workspaces/ws6/buscafonetica/resources/word_dict";
@@ -29,6 +31,7 @@ public class ArquivoLoaderTest {
 	}
 	
 	@Test()
+	@Ignore
 	public void getDicionario() throws IOException{
 		
 		String pathFile = "/Users/Vieira/Development/Workspaces/ws6/buscafonetica/resources/word_dict.txt";

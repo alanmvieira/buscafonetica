@@ -20,10 +20,11 @@ public class ProcessadorFonetico {
 	private String arquivoDicionario = null;
 
 	public ProcessadorFonetico(String[] argumentosInformados) {
-		args = argumentosInformados;
+		
+		args = argumentosInformados[0].split(" ");
 
 		words = capturarPalavrasIniciais(this.args);
-		arquivoDicionario = argumentosInformados[argumentosInformados.length - 1];
+		arquivoDicionario = args[args.length - 1];
 	}
 
 	public Map<String, List<String>> buscaFonetica() {
